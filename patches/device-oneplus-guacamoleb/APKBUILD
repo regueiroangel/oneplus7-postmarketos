@@ -1,0 +1,32 @@
+# Reference: <https://postmarketos.org/devicepkg>
+# Maintainer: Angel Regueiro <angelregueirovigo@gmail.com>
+pkgname=device-oneplus-guacamoleb
+pkgdesc="OnePlus 7"
+pkgver=1
+pkgrel=1
+url="https://postmarketos.org"
+license="MIT"
+arch="aarch64"
+options="!check !archcheck"
+depends="
+	linux-firmware-ath10k
+	linux-postmarketos-qcom-sm8150
+	mkbootimg
+	postmarketos-base
+	rmtfs
+	soc-qcom
+"
+makedepends="devicepkg-dev"
+source="deviceinfo"
+
+build() {
+	devicepkg_build $startdir $pkgname
+}
+
+package() {
+	devicepkg_package $startdir $pkgname
+}
+
+sha512sums="
+69e7d669619dc0aa68fadd76d7464c9a79fa3c85136335f1fa7dcd608e9525973deed21ebc46e755ea42db90bc60ead1ee76feab93016d47879a9c9271d39f7a  deviceinfo
+"
